@@ -51,10 +51,19 @@ while pokusy > 0:
         break
     else:
         print('Nesprávné jméno, nebo heslo. Zkus to prosím znovu.')
+        if pokusy == 1:
+            exit()
     pokusy = pokusy - 1
+
 print(oddelovac)
 while True:
-    vyber_cisla = int(input("Máme 3 texty k porovnání. Zadejte prosím číslo mezi 1 a 3: ")) - 1
+    vyber_cisla = input("Máme 3 texty k porovnání. Zadejte číslo v rozsahu 1 až 3: ")
+    if not vyber_cisla.isnumeric():
+        print('Zadaná hodnota není číslo.')
+        continue
+    else:
+        vyber_cisla = int(vyber_cisla) - 1
+
     if 0 > vyber_cisla or vyber_cisla > 2:
         print('Číslo není v rozsahu 1-3')
     else:
@@ -102,3 +111,4 @@ print(oddelovac)
 
 print(f'Pokud bychom sečetli všechna čísla v tomto textu, dostali bychom: {soucet_cisel}.')
 print(oddelovac)
+
